@@ -8,4 +8,3 @@ mapn("<C-h>", "<C-w><C-h>", "Move focus to left window")
 mapn("<C-j>", "<C-w><C-j>", "Move focus to lower window")
 mapn("<C-k>", "<C-w><C-k>", "Move focus to upper window")
 mapn("<C-l>", "<C-w><C-l>", "Move focus to tight window")
-
