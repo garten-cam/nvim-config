@@ -1,5 +1,14 @@
 return { -- LSP Configuration & Plugins
 	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		opts = {
+			ensure_installed = {
+				-- "debugpy", -- python linter
+				"bibtex-tidy",
+			},
+		},
+	},
+	{
 		"williamboman/mason.nvim",
 		config = function()
 			require("mason").setup()
@@ -13,6 +22,7 @@ return { -- LSP Configuration & Plugins
 					"lua_ls",
 					"matlab_ls",
 					"pylsp",
+					"texlab",
 				},
 			})
 		end,
@@ -20,10 +30,13 @@ return { -- LSP Configuration & Plugins
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			require("neodev").setup({})
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
 			lspconfig.pylsp.setup({})
 			lspconfig.matlab_ls.setup({})
+			lspconfig.texlab.setup({})
+
 			vim.keymap.set("n", "<leader>k", vim.diagnostic.open_float, { desc = "open diagnostic" })
 			vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go next Diagnostic" })
 			vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go prev Diagnostic" })

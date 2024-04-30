@@ -1,5 +1,5 @@
 return {
-	'stevearc/conform.nvim',
+	"stevearc/conform.nvim",
 	opts = {
 		notify_on_error = false,
 		format_on_save = {
@@ -7,7 +7,8 @@ return {
 			lsp_fallback = true,
 		},
 		formatters_by_ft = {
-			lua = { 'stylua' },
+			lua = { "stylua" },
+			tex = { "latexindent" },
 		},
 	},
 }

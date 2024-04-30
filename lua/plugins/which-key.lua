@@ -19,10 +19,30 @@ return {
 				l = { "List Workspace folders" },
 			},
 
-			["g"] = { name = "Go", D = { "Go to Declaration" }, d = { "Go to definition" } },
+			["g"] = { name = "Go", D = { "Go to Declaration" }, d = { "Go to definition" }, r = { "References" } },
 			["<leader>f"] = { "Format File" },
 			["<leader>D"] = { "Lsp Type Definition" },
 			["K"] = { "Lsp Hover" },
-		})
+			-- ["<leader>d"] = {
+			-- 	"Debug",
+			-- 	b = { "Toggle Breakpoint" },
+			-- 	s = { "Float Variables" },
+			-- 	p = { "Evaluate Expression" },
+			-- 	h = { "Hover Evaluation" },
+			-- 	l = { "Run Last adapter" },
+			-- 	t = { "Terminate" },
+			-- 	e = { "Dap Evaluate" },
+			-- },
+			-- ["<F5>"] = { "Dap start/continue" },
+			-- ["<F10>"] = { "Dap step over" },
+			-- ["<F11>"] = { "Dap step into" },
+			-- ["<F12>"] = { "Dap step out" },
+			["<localleader>o"] = { "Obsidian" },
+			["<leader>t"] = { "Tunnel tmux" },
+		}, { mode = "n" })
+		require("which-key").register({
+			["<leader>c"] = { "Code", a = { "Code Action" } },
+			["<leader>t"] = { "Tunnel tmux" },
+		}, { mode = "v" })
 	end,
 }

@@ -2,7 +2,7 @@ return {
 	{
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
-		tag = '0.1.6',
+		tag = "0.1.6",
 		dependencies = {
 			{
 				"nvim-lua/plenary.nvim",
@@ -45,6 +45,7 @@ return {
 			mapn("<leader>sr", builtin.resume, "Search Resume")
 			mapn("<leader>s.", builtin.oldfiles, "Search recent files (.)")
 			mapn("<leader><leader>", builtin.buffers, "Search existing buffers")
+			mapn("<leader>sy", builtin.lsp_document_symbols, "Search doc Symbols")
 		end,
 	},
 }
