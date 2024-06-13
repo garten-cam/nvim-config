@@ -6,16 +6,8 @@ vim.g.mapleader = " "
 -- The usual loacal leader
 vim.g.maplocalleader = "\\"
 -- vimtex options
-vim.g.vimtex_general_viewer = "zathura"
-vim.g.vimtex_view_command = "zathura"
-vim.g.vimtex_compiler_method = "latexmk"
-vim.g.vimtex_compiler_latexmk = {
-	aux_dir = "aux",
-}
-vim.g.vimtex_compiler_latexmk_engines = {
-	_ = "-xelatex",
-}
-
+vim.o.spelllang = "en_us"
+vim.o.spell = true
 -- sync clipboard betweent OS and neovim
 vim.opt.clipboard = "unnamedplus"
 vim.opt.relativenumber = true

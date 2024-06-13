@@ -38,6 +38,8 @@ return {
 			-- ["<F11>"] = { "Dap step into" },
 			-- ["<F12>"] = { "Dap step out" },
 			["<localleader>o"] = { "Obsidian" },
+			["<localleader>s"] = { "Surround" },
+			-- ["<localleader>t"] = { "TaskWarrior" },
 			["<leader>t"] = { "Tunnel tmux" },
 		}, { mode = "n" })
 		require("which-key").register({

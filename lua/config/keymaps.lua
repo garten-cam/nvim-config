@@ -25,7 +25,7 @@ end
 -- Obsidian
 mapn("<LocalLeader>of", "<cmd>ObsidianSearch<cr>", "Obsidian Search")
 mapn("<LocalLeader>ot", "<cmd>ObsidianToday<cr>", "Obsidian Today")
-mapn("<Localleader>oc", require("obsidian").util.toggle_checkbox, "Toggle Checkbox")
+-- mapn("<Localleader>oc", require("obsidian").util.toggle_checkbox, "Toggle Checkbox")
 -- Move
 mapn("<A-j>", ":MoveLine(1)<CR>", "Move line j")
 mapn("<A-k>", ":MoveLine(-1)<CR>", "Move line k")
