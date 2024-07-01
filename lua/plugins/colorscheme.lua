@@ -10,7 +10,7 @@ return {
 				terminal_colors = false,
 				bold = true,
 			})
-			vim.cmd.colorscheme("gruvbox")
+			-- vim.cmd.colorscheme("gruvbox")
 		end,
 	},
 	{
@@ -28,6 +28,25 @@ return {
 					floats = "transparent",
 				},
 			})
+		end,
+	},
+	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({
+				flavour = "mocha",
+				transparent_background = true,
+				highlight_overrides = {
+					mocha = function(colors)
+						return {
+							Comment = { fg = colors.green },
+						}
+					end,
+				},
+			})
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 }
