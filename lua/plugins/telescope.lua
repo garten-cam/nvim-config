@@ -31,21 +31,20 @@ return {
 			})
 			require("telescope").load_extension("ui-select")
 			require("telescope").load_extension("fzf")
-			local mapn = function(keys, cmd, dsc)
-				vim.keymap.set("n", keys, cmd, { desc = dsc })
-			end
-			local builtin = require("telescope.builtin")
-			mapn("<leader>sf", builtin.find_files, "Search Files")
-			mapn("<leader>sh", builtin.help_tags, "Search Help")
-			mapn("<leader>sk", builtin.keymaps, "Search Keymaps")
-			mapn("<leader>ss", builtin.builtin, "Search Select telescope")
-			mapn("<leader>sw", builtin.grep_string, "Search current Word")
-			mapn("<leader>sg", builtin.live_grep, "Search by Group")
-			mapn("<leader>sd", builtin.diagnostics, "Search Diagnostics")
-			mapn("<leader>sr", builtin.resume, "Search Resume")
-			mapn("<leader>s.", builtin.oldfiles, "Search recent files (.)")
-			mapn("<leader><leader>", builtin.buffers, "Search existing buffers")
-			mapn("<leader>sy", builtin.lsp_document_symbols, "Search doc Symbols")
+			require("which-key").add({
+				{ "<leader>s",        desc = "Search" },
+				{ "<leader>sf",       "<cmd>Telescope find_files<cr>",           desc = "Search Files" },
+				{ "<leader>sh",       "<cmd>Telescope help_tags<cr>",            desc = "Search Help" },
+				{ "<leader>sk",       "<cmd>Telescope keymaps<cr>",              desc = "Search Keymaps" },
+				{ "<leader>ss",       "<cmd>Telescope builtin<cr>",              desc = "Search Select Telescope" },
+				{ "<leader>sw",       "<cmd>Telescope grep_string<cr>",          desc = "Search current Word" },
+				{ "<leader>sg",       "<cmd>Telescope live_grep<cr>",            desc = "Search string" },
+				{ "<leader>sd",       "<cmd>Telescope diagnostics<cr>",          desc = "Search Diagnostics" },
+				{ "<leader>sr",       "<cmd>Telescope resume<cr>",               desc = "Search Resume" },
+				{ "<leader>s.",       "<cmd>Telescope oldfiles<cr>",             desc = "Search recent files" },
+				{ "<leader>sy",       "<cmd>Telescope lsp_document_symbols<cr>", desc = "Search LSP symbols" },
+				{ "<leader><leader>", "<cmd>Telescope buffers<cr>",              desc = "Search existing buffers" },
+			})
 		end,
 	},
 }

@@ -9,7 +9,7 @@ vim.g.maplocalleader = "\\"
 vim.o.spelllang = "en_us"
 vim.o.spell = true
 -- sync clipboard betweent OS and neovim
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamed,unnamedplus"
 vim.opt.relativenumber = true
 -- always show the sign column. Otherwisek, it looks weird when it is not under version control
 vim.opt.signcolumn = "yes"
@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	group = vim.api.nvim_create_augroup("lazyvim_vimtex_conceal", { clear = true }),
-	pattern = { "bib", "tex", "markdown" },
+	pattern = { "bib", "tex", "markdown", "norg", "neorg" },
 	callback = function()
 		vim.opt.conceallevel = 2
 	end,

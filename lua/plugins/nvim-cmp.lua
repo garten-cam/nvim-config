@@ -4,14 +4,21 @@ return {
 	},
 	{
 		"L3MON4D3/LuaSnip",
+		run = "make install_jsregexp",
 		dependencies = {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 			"hrsh7th/cmp-path",
 		},
 	},
+	-- { "amarakon/nvim-cmp-lua-latex-symbols" },
+	{ "kdheepak/cmp-latex-symbols" },
 	{
 		"hrsh7th/nvim-cmp",
+		requires = {
+			-- { "amarakon/nvim-cmp-lua-latex-symbols" },
+			{ "kdheepak/cmp-latex-symbols" },
+		},
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
@@ -24,10 +31,6 @@ return {
 						require("luasnip").lsp_expand(args.body)
 					end,
 				},
-				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
-				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
 					["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -36,22 +39,32 @@ return {
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
-					["<tab>"] = cmp.mapping(function()
-						if luasnip.expand_or_locally_jumpable() then
-							luasnip.expand_or_jump()
+					["<Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_next_item()
+						elseif require("luasnip").expand_or_jumpable() then
+							require("luasnip").expand_or_jump()
+						else
+							fallback()
 						end
 					end, { "i", "s" }),
-					["<S-tab>"] = cmp.mapping(function()
-						if luasnip.locally_jumpable(-1) then
-							luasnip.jump(-1)
+					["<S-Tab>"] = cmp.mapping(function(fallback)
+						if cmp.visible() then
+							cmp.select_prev_item()
+						elseif require("luasnip").jumpable(-1) then
+							require("luasnip").jump(-1)
+						else
+							fallback()
 						end
-					end),
+					end, { "i", "s" }),
 				}),
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 					{ name = "path" },
-				}, {
+					-- { name = "lua_latex_symbols" },
+					{ name = "latex_symbols" },
+					{ name = "neorg" },
 					{ name = "buffer" },
 				}),
 			})

@@ -9,6 +9,10 @@ return {
 	-- to lazy-load on keymaps:
 	keys = {
 		-- suggestions for keymaps:
+		-- require("which-key").add({
+		-- 	{ "<" },
+		-- }),
+		{ "<leader>t", desc = "Tunnell" },
 		{ "<leader>tt", ":TunnellCell<CR>", mode = { "n" }, desc = "Tunnell cell" },
 		{ "<leader>tt", ":TunnellRange<CR>", mode = { "v" }, desc = "Tunnell range" },
 		{ "<leader>tc", ":TunnellConfig<CR>", mode = { "n" }, desc = "Tunnell config" },
