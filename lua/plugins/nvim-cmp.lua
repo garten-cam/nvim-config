@@ -11,14 +11,9 @@ return {
 			"hrsh7th/cmp-path",
 		},
 	},
-	-- { "amarakon/nvim-cmp-lua-latex-symbols" },
-	{ "kdheepak/cmp-latex-symbols" },
 	{
 		"hrsh7th/nvim-cmp",
-		requires = {
-			-- { "amarakon/nvim-cmp-lua-latex-symbols" },
-			{ "kdheepak/cmp-latex-symbols" },
-		},
+		requires = {},
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
@@ -62,8 +57,6 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 					{ name = "path" },
-					-- { name = "lua_latex_symbols" },
-					{ name = "latex_symbols" },
 					{ name = "neorg" },
 					{ name = "buffer" },
 				}),

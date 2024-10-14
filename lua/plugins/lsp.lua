@@ -41,8 +41,8 @@ return { -- LSP Configuration & Plugins
 
 			require("which-key").add({
 				{ "<leader>k", vim.diagnostic.open_float, desc = "Hover (Show diagnostics)" },
-				{ "[d",        vim.diagnostic.goto_prev,  desc = "Go next Diagnostic" },
-				{ "]d",        vim.diagnostic.goto_next,  desc = "Go prev Diagnostic" },
+				{ "[d", vim.diagnostic.goto_prev, desc = "Go next Diagnostic" },
+				{ "]d", vim.diagnostic.goto_next, desc = "Go prev Diagnostic" },
 				{ "<leader>q", vim.diagnostic.setloclist, desc = "List Diagnostics" },
 			})
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -55,18 +55,24 @@ return { -- LSP Configuration & Plugins
 					-- See `:help vim.lsp.*` for documentation on any of the below functions
 					local opts = { buffer = ev.buf }
 					require("which-key").add({
-						{ "g",          desc = "go" },
-						{ "gD",         vim.lsp.buf.declaration,              desc = "Declaration",       opts },
-						{ "gd",         vim.lsp.buf.definition,               desc = "Definition",        opts },
-						{ "K",          vim.lsp.buf.hover,                    desc = "Hover",             opts },
-						{ "gi",         vim.lsp.buf.implementation,           desc = "Implementation",    opts },
-						{ "gr",         vim.lsp.buf.references,               desc = "Symbol References", opts },
-						{ "<leader>D",  vim.lsp.buf.type_definition,          desc = "Type Definition",   opts },
-						{ "<leader>r",  desc = "Rename" },
-						{ "<leader>rn", vim.lsp.buf.rename,                   desc = "Lsp Rename",        opts },
-						{ "<leader>c",  desc = "Code" },
-						{ "<leader>ca", vim.lsp.buf.code_action,              desc = "Code Action",       opts, mode = { "n", "v" } },
-						{ "<leader>f",  vim.lsp.buf.format({ async = true }), desc = "Format file",       opts },
+						{ "g", desc = "go" },
+						{ "gD", vim.lsp.buf.declaration, desc = "Declaration", opts },
+						{ "gd", vim.lsp.buf.definition, desc = "Definition", opts },
+						{ "K", vim.lsp.buf.hover, desc = "Hover", opts },
+						{ "gi", vim.lsp.buf.implementation, desc = "Implementation", opts },
+						{ "gr", vim.lsp.buf.references, desc = "Symbol References", opts },
+						{ "<leader>D", vim.lsp.buf.type_definition, desc = "Type Definition", opts },
+						{ "<leader>r", desc = "Rename" },
+						{ "<leader>rn", vim.lsp.buf.rename, desc = "Lsp Rename", opts },
+						{ "<leader>c", desc = "Code" },
+						{
+							"<leader>ca",
+							vim.lsp.buf.code_action,
+							desc = "Code Action",
+							opts,
+							mode = { "n", "v" },
+						},
+						{ "<leader>f", vim.lsp.buf.format({ async = true }), desc = "Format file", opts },
 					})
 				end,
 			})

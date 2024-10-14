@@ -23,6 +23,6 @@ return {
 		end,
 	},
 	{
-		"evesdropper/luasnip-latex-snippets.nvim",
+		"iurimateus/luasnip-latex-snippets.nvim",
 	},
 }
