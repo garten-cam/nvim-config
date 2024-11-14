@@ -17,6 +17,10 @@ return {
 				},
 				["core.completion"] = { config = { engine = "nvim-cmp" } },
 				["core.integrations.nvim-cmp"] = {},
+				["core.export"] = {},
+				["core.export.markdown"] = { config = { extensions = "all" } },
+				["core.integrations.image"] = {},
+				["core.latex.renderer"] = {},
 			},
 		})
 		vim.api.nvim_create_autocmd("Filetype", {

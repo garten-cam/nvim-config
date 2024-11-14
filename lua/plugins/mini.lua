@@ -15,4 +15,11 @@ return {
 		},
 	},
 	{ "echasnovski/mini.icons", version = false },
+	{
+		"echasnovski/mini.pairs",
+		version = "*",
+		config = function()
+			require("mini.pairs").setup()
+		end,
+	},
 }

@@ -9,6 +9,12 @@ return {
 	config = function()
 		require("which-key").add({
 			{ "<localleader>s", desc = "Surround" },
+			{ "<localleader>o", desc = "Obsidian" },
+			{ "<localleader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian Dailies" },
+			{ "<localleader>os", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian Quick Switch" },
+			{ "<localleader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian Back Links" },
+			{ "<localleader>of", "<cmd>ObsidianSearch<cr>", desc = "Obsidian fz" },
+			{ "<localleader>ot", "<cmd>ObsidianTOC<cr>" },
 		})
 	end,
 	-- config = function()
