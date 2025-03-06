@@ -10,7 +10,7 @@ return {
 		-- Examples: 'Normal', '#ff0000'
 		foreground = "Normal",
 		-- Hide the text when the equation is under the cursor.
-		anticonceal = false,
+		anticonceal = true,
 		-- Hide the text when in the Insert Mode.
 		hide_on_insert = true,
 		-- Enable dynamic size for non-inline equations.

@@ -35,7 +35,17 @@ return { -- LSP Configuration & Plugins
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
 			lspconfig.pylsp.setup({})
-			lspconfig.matlab_ls.setup({})
+			lspconfig.clangd.setup({})
+			lspconfig.matlab_ls.setup({
+				capabilities = require("cmp_nvim_lsp").default_capabilities(),
+				settings = {
+					MATLAB = {
+						installPath = "/home/cgarcia/MATLAB/R2025a",
+						matlabConnectionTiming = "onStart",
+						telemetry = true,
+					},
+				},
+			})
 			lspconfig.texlab.setup({})
 			lspconfig.julials.setup({})
 

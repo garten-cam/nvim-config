@@ -14,7 +14,8 @@ return {
 			{ "<localleader>os", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian Quick Switch" },
 			{ "<localleader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian Back Links" },
 			{ "<localleader>of", "<cmd>ObsidianSearch<cr>", desc = "Obsidian fz" },
-			{ "<localleader>ot", "<cmd>ObsidianTOC<cr>" },
+			{ "<localleader>ot", "<cmd>ObsidianTOC<cr>", desc = "Obsidian TOC" },
+			{ "<localleader>oc", "<cmd>ObsidianToggleCheckbox<cr>", desc = "Obsidian Toggle checkbox" },
 		})
 	end,
 	-- config = function()

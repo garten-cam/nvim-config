@@ -9,6 +9,7 @@ return {
 				transparent_mode = true,
 				terminal_colors = false,
 				bold = true,
+				dim_inactive = true,
 			})
 			-- vim.cmd.colorscheme("gruvbox")
 		end,
@@ -28,6 +29,7 @@ return {
 					floats = "transparent",
 				},
 			})
+			-- vim.cmd.colorscheme("tokyonight")
 		end,
 	},
 	{

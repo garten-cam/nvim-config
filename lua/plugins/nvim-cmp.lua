@@ -10,10 +10,14 @@ return {
 			"rafamadriz/friendly-snippets",
 			"hrsh7th/cmp-path",
 		},
+		config = function()
+			require("luasnip.loaders.from_lua").lazy_load({ paths = { "./lua/luasnip/" } })
+		end,
 	},
+	{ "kdheepak/cmp-latex-symbols" },
 	{
 		"hrsh7th/nvim-cmp",
-		requires = {},
+		requires = { "kdheepak/cmp-latex-symbols", after = "nvim-cmp" },
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
@@ -57,10 +61,30 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 					{ name = "path" },
-					{ name = "neorg" },
 					{ name = "buffer" },
+					{ name = "latex_symbols" },
+					{ name = "obsidian" },
+					{ name = "treesitter" },
+					{ name = "cmp-nvim-lsp" },
 				}),
 			})
+			cmp.setup.filetype("tex", {
+				sources = {
+					{ name = "vimtex" },
+					{ name = "nvim_lsp" },
+					{ name = "luasnip" },
+					{ name = "buffer" },
+					{ name = "path" },
+					{ name = "latex_symbols" },
+				},
+			})
+		end,
+	},
+	{
+		"micangl/cmp-vimtex",
+		ft = "tex",
+		config = function()
+			require("cmp_vimtex").setup({})
 		end,
 	},
 }
