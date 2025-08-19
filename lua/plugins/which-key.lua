@@ -7,16 +7,16 @@ return {
 	end,
 	opts = {},
 	config = function()
-		require("which-key").add({
-			{ "<localleader>s", desc = "Surround" },
-			{ "<localleader>o", desc = "Obsidian" },
-			{ "<localleader>od", "<cmd>ObsidianDailies<cr>", desc = "Obsidian Dailies" },
-			{ "<localleader>os", "<cmd>ObsidianQuickSwitch<cr>", desc = "Obsidian Quick Switch" },
-			{ "<localleader>ob", "<cmd>ObsidianBacklinks<cr>", desc = "Obsidian Back Links" },
-			{ "<localleader>of", "<cmd>ObsidianSearch<cr>", desc = "Obsidian fz" },
-			{ "<localleader>ot", "<cmd>ObsidianTOC<cr>", desc = "Obsidian TOC" },
-			{ "<localleader>oc", "<cmd>ObsidianToggleCheckbox<cr>", desc = "Obsidian Toggle checkbox" },
-		})
+		-- require("which-key").add({
+		-- 	{ "<localleader>s", desc = "Surround" },
+		-- 	{ "<localleader>o", desc = "Obsidian" },
+		-- 	{ "<localleader>od", "<cmd>Obsidian dailies<cr>", desc = "Obsidian Dailies" },
+		-- 	{ "<localleader>os", "<cmd>Obsidian quick_switch<cr>", desc = "Obsidian Quick Switch" },
+		-- 	{ "<localleader>ob", "<cmd>Obsidian backlinks<cr>", desc = "Obsidian Back Links" },
+		-- 	{ "<localleader>of", "<cmd>Obsidian search<cr>", desc = "Obsidian fz" },
+		-- 	{ "<localleader>ot", "<cmd>Obsidian toc<cr>", desc = "Obsidian TOC" },
+		-- 	{ "<localleader>oc", "<cmd>Obsidian toggle_checkbox<cr>", desc = "Obsidian Toggle checkbox" },
+		-- })
 	end,
 	-- config = function()
 	-- 	require("which-key").setup()

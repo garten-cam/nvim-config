@@ -31,29 +31,14 @@ return { -- LSP Configuration & Plugins
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			require("neodev").setup({})
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({})
 			lspconfig.pylsp.setup({})
 			lspconfig.clangd.setup({})
-			lspconfig.matlab_ls.setup({
-				capabilities = require("cmp_nvim_lsp").default_capabilities(),
-				settings = {
-					MATLAB = {
-						installPath = "/home/cgarcia/MATLAB/R2025a",
-						matlabConnectionTiming = "onStart",
-						telemetry = true,
-					},
-				},
-			})
 			lspconfig.texlab.setup({})
 			lspconfig.julials.setup({})
-
-			require("which-key").add({
-				{ "<leader>k", vim.diagnostic.open_float, desc = "Hover (Show diagnostics)" },
-				{ "[d", vim.diagnostic.goto_prev, desc = "Go next Diagnostic" },
-				{ "]d", vim.diagnostic.goto_next, desc = "Go prev Diagnostic" },
-				{ "<leader>q", vim.diagnostic.setloclist, desc = "List Diagnostics" },
+			lspconfig.matlab_ls.setup({
+				installPath = "/home/cgarcia/MATLAB/R2025a",
 			})
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),

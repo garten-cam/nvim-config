@@ -1,7 +1,7 @@
 return {
-	"epwalsh/obsidian.nvim",
+	"obsidian-nvim/obsidian.nvim",
 	version = "*", -- recommended, use latest release instead of latest commit
-	lazy = false,
+	lazy = true,
 	ft = "markdown",
 	dependencies = {
 		-- Required.
@@ -9,6 +9,8 @@ return {
 
 		-- see below for full list of optional dependencies 👇
 	},
+	---@module 'obsidian'
+	---@type obsidian.config
 	opts = {
 		workspaces = {
 			{
@@ -31,15 +33,11 @@ return {
 			},
 		},
 		preferred_link_style = "markdown",
-		ui = {
-			enable = false,
-			checkboxes = {
-				-- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
-				[" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-				["x"] = { char = "", hl_group = "ObsidianDone" },
-				["!"] = { char = "", hl_group = "ObsidianImportant" },
-			},
+		checkbox = {
+			order = { " ", "x", ">", "~", "!" },
 		},
+		disable_frontmatter = false,
+		---@return table
 		note_frontmatter_func = function(note)
 			-- Add the title of the note as an alias.
 			if note.title then
@@ -58,28 +56,6 @@ return {
 
 			return out
 		end,
-		mappings = {
-			["<cr>"] = {
-				action = function()
-					return "<cmd>ObsidianFollowLink<cr>"
-				end,
-				opts = { buffer = true, expr = true },
-			},
-		},
-		-- ---@param url string
-		-- follow_url_func = function(url)
-		-- 	-- Open the URL in the default web browser.
-		-- 	-- vim.fn.jobstart({ "open", url }) -- Mac OS
-		-- 	vim.fn.jobstart({ "xdg-open", url }) -- linux
-		-- 	-- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
-		-- 	-- vim.ui.open(url) -- need Neovim 0.10.0+
-		-- end,
-		-- ---@param pdf string
-		-- follow_pdf_func = function(pdf)
-		-- 	-- vim.fn.jobstart({ "open", url }) -- Mac OS
-		-- 	vim.fn.jobstart({ "xdg-open", pdf }) -- linux
-		-- 	-- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
-		-- 	-- vim.ui.open(url) -- need Neovim 0.10.0+
-		-- end,
+		legacy_commands = false,
 	},
 }

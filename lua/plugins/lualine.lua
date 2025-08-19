@@ -6,7 +6,7 @@ return {
 				-- theme = "gruvbox-material",
 				-- theme = "dracula",
 				-- theme = "iceberg",
-				theme = "catppuccin",
+				theme = "auto",
 			},
 		})
 	end,

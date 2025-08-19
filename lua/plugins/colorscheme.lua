@@ -21,7 +21,7 @@ return {
 		name = "tokyonight",
 		config = function()
 			require("tokyonight").setup({
-				style = "night",
+				style = "moon",
 				transparent = true,
 				terminal_colors = true,
 				styles = {
@@ -29,7 +29,8 @@ return {
 					floats = "transparent",
 				},
 			})
-			-- vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("tokyonight")
+			vim.api.nvim_set_hl(0, "Comment", { fg = "#a9b1d6", italic = true })
 		end,
 	},
 	{
@@ -48,7 +49,16 @@ return {
 					end,
 				},
 			})
-			vim.cmd.colorscheme("catppuccin")
+			-- vim.cmd.colorscheme("catppuccin")
 		end,
+	},
+	{
+		"catgoose/nvim-colorizer.lua",
+		event = "BufReadPre",
+		opts = { -- set to setup table
+			user_default_options = {
+				names = false,
+			},
+		},
 	},
 }

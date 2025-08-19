@@ -11,17 +11,18 @@ return {
 			"hrsh7th/cmp-path",
 		},
 		config = function()
-			require("luasnip.loaders.from_lua").lazy_load({ paths = { "./lua/luasnip/" } })
+			require("luasnip.loaders.from_lua").lazy_load({
+				paths = { "./lua/luasnip/" },
+			})
 		end,
 	},
-	{ "kdheepak/cmp-latex-symbols" },
 	{
 		"hrsh7th/nvim-cmp",
 		requires = { "kdheepak/cmp-latex-symbols", after = "nvim-cmp" },
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
-			luasnip.config.setup({})
+			luasnip.config.setup()
 			require("luasnip.loaders.from_vscode").lazy_load()
 
 			cmp.setup({
@@ -37,7 +38,7 @@ return {
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = true }),
+					["<C-return>"] = cmp.mapping.confirm({ select = true }),
 					["<Tab>"] = cmp.mapping(function(fallback)
 						if cmp.visible() then
 							cmp.select_next_item()
@@ -66,6 +67,7 @@ return {
 					{ name = "obsidian" },
 					{ name = "treesitter" },
 					{ name = "cmp-nvim-lsp" },
+					{ name = "LazyDev", group_index = 0 },
 				}),
 			})
 			cmp.setup.filetype("tex", {
@@ -78,13 +80,6 @@ return {
 					{ name = "latex_symbols" },
 				},
 			})
-		end,
-	},
-	{
-		"micangl/cmp-vimtex",
-		ft = "tex",
-		config = function()
-			require("cmp_vimtex").setup({})
 		end,
 	},
 }
