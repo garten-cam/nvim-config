@@ -29,7 +29,7 @@ vim.opt.scrolloff = 5
 vim.opt.undofile = true
 -- vim.opt.textwidth = 80
 vim.opt.ignorecase = true
-
+vim.opt.winborder = "rounded"
 vim.wo.wrap = true
 vim.wo.linebreak = true
 -- vim.wo.colorcolumn = "+0"

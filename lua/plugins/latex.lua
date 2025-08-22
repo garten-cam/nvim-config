@@ -29,7 +29,7 @@ return {
 		dependencies = {
 			"junegunn/fzf.vim",
 		},
-		ft = { "tex", "markdown", "md" },
+		ft = { "tex" },
 		config = function()
 			vim.g.bibtexcite_bibfile = "/home/cgarcia/Documents/sidEDMDjournal/siddec.bib"
 			-- Create a command to insert a citation from your BibTeX file.
