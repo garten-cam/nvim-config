@@ -29,7 +29,7 @@ return {
 					floats = "transparent",
 				},
 			})
-			vim.cmd.colorscheme("tokyonight")
+			-- vim.cmd.colorscheme("tokyonight")
 			vim.api.nvim_set_hl(0, "Comment", { fg = "#a9b1d6", italic = true })
 		end,
 	},
@@ -44,12 +44,14 @@ return {
 				highlight_overrides = {
 					mocha = function(colors)
 						return {
-							Comment = { fg = colors.green },
+							-- Comment = { fg = colors.green },
+							Comment = { fg = "#a9b1d6" },
+							Visual = { bg = colors.surface2 },
 						}
 					end,
 				},
 			})
-			-- vim.cmd.colorscheme("catppuccin")
+			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
 	{

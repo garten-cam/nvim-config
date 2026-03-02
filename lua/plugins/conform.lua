@@ -1,28 +1,25 @@
 return {
 	"stevearc/conform.nvim",
-	-- opts = {
-	-- 	event = { "BufWritePre", "BufNewFile" },
-	-- 	notify_on_error = false,
-	-- 	format_on_save = {
-	-- 		timeout_ms = 500,
-	-- 		lsp_format = "fallback",
-	-- 	},
-	-- 	formatters_by_ft = {
-	-- 		tex = { "tex-fmt", "latexindet" },
-	-- 	},
-	-- },
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("conform").setup({
 			formatters_by_ft = {
-				markdown = { "cbfmt", "prettier" },
+				-- markdown = { "cbfmt", "prettier" },
+				markdown = { "cbfmt" },
 				lua = { "stylua" },
 				tex = { "tex-fmt" },
 				c = { "clang-format" },
 				h = { "clang-format" },
 			},
+			default_format_opts = {
+				-- Increase the timeout in case Runic needs to precompile
+				-- (e.g. after upgrading Julia and/or Runic).
+				timeout_ms = 10000,
+			},
 			format_on_save = {
+				lsp_fallback = true,
+				async = false,
 				timeout_ms = 500,
-				-- lsp_fallback = true,
 			},
 		})
 	end,

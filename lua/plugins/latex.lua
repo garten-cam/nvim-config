@@ -22,33 +22,8 @@ return {
 				_ = "-xelatex",
 			}
 			vim.g.vimtex_syntax_conceal_disable = 1
-		end,
-	},
-	{
-		"ferdinandyb/bibtexcite.vim",
-		dependencies = {
-			"junegunn/fzf.vim",
-		},
-		ft = { "tex" },
-		config = function()
-			vim.g.bibtexcite_bibfile = "/home/cgarcia/Documents/sidEDMDjournal/siddec.bib"
-			-- Create a command to insert a citation from your BibTeX file.
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = { "markdown", "tex" },
-				callback = function()
-					-- Normal mode mapping for `<leader>nc` to insert a citation.
-					vim.keymap.set("n", "<localleader>bi", "<cmd>BibtexciteInsert<cr>", {
-						buffer = true,
-						silent = true,
-					})
-
-					-- Insert mode mapping for `@@` to insert a citation.
-					vim.keymap.set("i", "@@", "<esc><cmd>BibtexciteInsert<cr>", {
-						buffer = true,
-						silent = true,
-					})
-				end,
-			})
+			vim.g.vimtex_complete_enabled = 1
+			vim.g.vimtex_complete_bib = { simple = 1 }
 		end,
 	},
 }

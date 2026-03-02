@@ -21,9 +21,13 @@ return {
 		words = { enabled = true },
 		image = {
 			math = {
+				enabled = true,
 				latex = {
 					font_size = "normalsize",
 				},
+			},
+			doc = {
+				inline = false,
 			},
 		},
 	},
@@ -31,7 +35,7 @@ return {
 		{
 			"<leader><leader>",
 			function()
-				Snacks.picker.buffers()
+				Snacks.picker.buffers({ current = false })
 			end,
 			desc = "Buffers",
 		},

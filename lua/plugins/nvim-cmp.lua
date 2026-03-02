@@ -18,6 +18,12 @@ return {
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-omni",
+		},
 		requires = { "kdheepak/cmp-latex-symbols", after = "nvim-cmp" },
 		config = function()
 			local cmp = require("cmp")
@@ -61,6 +67,7 @@ return {
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
+					{ name = "omni" },
 					{ name = "path" },
 					{ name = "buffer" },
 					{ name = "latex_symbols" },
@@ -68,6 +75,8 @@ return {
 					{ name = "treesitter" },
 					{ name = "cmp-nvim-lsp" },
 					{ name = "LazyDev", group_index = 0 },
+					{ name = "lua-latex-symbols", option = { cache = true } },
+					{ name = "papis" },
 				}),
 			})
 			cmp.setup.filetype("tex", {
@@ -78,6 +87,7 @@ return {
 					{ name = "buffer" },
 					{ name = "path" },
 					{ name = "latex_symbols" },
+					{ name = "omni" },
 				},
 			})
 		end,
