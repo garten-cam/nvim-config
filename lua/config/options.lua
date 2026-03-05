@@ -53,10 +53,10 @@ vim.g.markdown_recommended_style = 0
 -- vim.g.mark
 -- Font in case there is a gui
 vim.o.guifont = "MesloLGS Nerd Font Mono:h10"
--- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
--- 	pattern = { "*.md" },
--- 	callback = function()
--- 		vim.diagnostic.enable(false)
--- 	end,
--- })
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.md" },
+	callback = function()
+		vim.diagnostic.enable(false)
+	end,
+})
 vim.diagnostic.config({ jump = { float = true } })

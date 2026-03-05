@@ -4,7 +4,7 @@ return {
 		build = ":TSUpdate",
 		lazy = false,
 		config = function()
-			local configs = require("nvim-treesitter.configs")
+			local configs = require("nvim-treesitter.config")
 			configs.setup({
 				ensure_installed = {
 					"lua",
@@ -17,8 +17,6 @@ return {
 					"yaml",
 				},
 				sync_install = false,
-				-- highlight = { enable = true },
-				-- highlight = { enable = true, disable = { "latex", "markdown" } },
 				highlight = { enable = true, disable = { "latex" } },
 				indent = { enable = true },
 				ignore_install = {},
