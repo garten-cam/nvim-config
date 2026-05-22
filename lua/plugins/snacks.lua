@@ -27,7 +27,7 @@ return {
 				},
 			},
 			doc = {
-				inline = false,
+				inline = true,
 			},
 		},
 	},

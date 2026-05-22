@@ -1,5 +1,10 @@
 return {
 	"nvimtools/none-ls.nvim",
+	dependencies = {
+		-- Required.
+		"nvim-lua/plenary.nvim",
+		-- see below for full list of optional dependencies 👇
+	},
 	config = function()
 		local null_ls = require("null-ls")
 		null_ls.setup({

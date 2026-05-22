@@ -7,13 +7,14 @@ return {
 	---@type render.md.UserConfig
 	opts = {
 		latex = {
-			enabled = false,
+			enabled = true,
+			converter = { "latex2text" },
 		},
 		checkbox = {
 			enabled = false,
 		},
 		code = { border = "none" },
-		ft = { "latex" },
+		file_types = { "latex", "markdown", "vimwiki" },
 		render_modes = true,
 	},
 }

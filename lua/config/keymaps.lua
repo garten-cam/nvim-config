@@ -20,7 +20,9 @@ mapn("<localleader>od", "<cmd>Obsidian dailies<CR>", "Obsidian Dailies")
 mapn("<localleader>os", "<cmd>Obsidian quick_switch<cr>", "Obsidian Quick Switch")
 mapn("<localleader>ob", "<cmd>Obsidian backlinks<cr>")
 mapn("<localleader>of", "<cmd>Obsidian search<cr>")
-mapn("<localleader>ot", "<cmd>Obsidian toc<cr>", "Obsidian TOC")
+mapn("<localleader>oi", "<cmd>Obsidian toc<cr>", "Obsidian TOC")
+mapn("<localleader>on", "<cmd>Obsidian new<cr>", "Obsidian new")
+mapn("<localleader>ot", "<cmd>Obsidian tags<cr>", "Obsidian tags")
 -- Fine cmd
 -- mapn(":", "<cmd>FineCmdline<CR>", "Fine command line")
 -- toggleterm

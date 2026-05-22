@@ -45,14 +45,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	group = vim.api.nvim_create_augroup("lazyvim_vimtex_conceal", { clear = true }),
 	pattern = { "bib", "tex", "markdown", "norg", "neorg" },
 	callback = function()
-		vim.opt.conceallevel = 1
+		vim.opt.conceallevel = 2
 	end,
 })
 -- For some reason markdown resets some values
 vim.g.markdown_recommended_style = 0
 -- vim.g.mark
 -- Font in case there is a gui
-vim.o.guifont = "MesloLGS Nerd Font Mono:h10"
+vim.o.guifont = "Iosevka NFM Obl:h10"
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = { "*.md" },
 	callback = function()
@@ -60,3 +60,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 vim.diagnostic.config({ jump = { float = true } })
+if vim.g.neovide then
+	vim.g.neovide_opacity = 0.8
+elseif vim.fn.exists("g:GuiLoaded") == 1 then
+	vim.cmd("GuiWindowOpacity 0.8")
+end

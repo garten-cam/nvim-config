@@ -1,8 +1,9 @@
 return {
 	"obsidian-nvim/obsidian.nvim",
-	version = "3.14.7", -- recommended, use atest release instead of latest commit
-	lazy = true,
-	ft = "markdown",
+	-- version = "3.14.7", -- recommended, use atest release instead of latest commit
+	version = "*",
+	lazy = false,
+	ft = { "markdown", "snacks_dashboard" },
 	dependencies = {
 		-- Required.
 		"nvim-lua/plenary.nvim",
@@ -18,32 +19,34 @@ return {
 				name = "notes",
 				path = "~/vaults/",
 			},
+			{
+				name = "zettelkasten",
+				path = "~/zettelkasten",
+			},
 		},
-		-- callbacks = {
-		-- 	enter_note = function (note)
-		-- 		vim.ke
-		-- 	end
-		-- },
-		daily_notes = {
-			folder = "dailies",
-			default_tags = { "dailies" },
-			template = "daily.md",
+		note = {
+			template = "default.md",
 		},
 		templates = {
 			folder = "templates",
 			date_format = "%Y-%m-%d",
+			time_format = "%H:#M",
 			substitutions = {
 				daily_title = function()
-					return os.date("%a %b %d, %Y")
+					return print(os.date("%a %b %d, %Y"))
 				end,
 			},
 		},
-		preferred_link_style = "markdown",
-		checkbox = {
-			create_new = false,
-			order = { " ", "x", ">", "~", "!" },
+		-- preferred_link_style = "markdown",
+		link = {
+			style = "wiki",
+			format = "shortest",
 		},
-		frontmatter = { enabled = true },
+		checkbox = {
+			-- create_new = false,
+			order = { " ", "~", "!", ">", "x", "" },
+		},
+		-- frontmatter = { enabled = true, sort = { "id", "aliases" } },
 		-- disable_frontmatter = false,
 		---@return table
 		legacy_commands = false,

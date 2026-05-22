@@ -3,7 +3,7 @@ return {
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter",
 		"hrsh7th/nvim-cmp",
-		"neovim/nvim-lspconfig",
+		-- "neovim/nvim-lspconfig",
 	},
 	opts = {},
 }
