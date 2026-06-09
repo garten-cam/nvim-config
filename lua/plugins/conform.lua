@@ -7,7 +7,7 @@ return {
 				-- markdown = { "cbfmt", "prettier" },
 				-- markdown = { "prettier" },
 				lua = { "stylua" },
-				tex = { "tex-fmt" },
+				tex = { "latexindent" },
 				c = { "clang-format" },
 				h = { "clang-format" },
 			},
