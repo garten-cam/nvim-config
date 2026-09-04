@@ -23,14 +23,13 @@ mapn("<localleader>of", "<cmd>Obsidian search<cr>")
 mapn("<localleader>oi", "<cmd>Obsidian toc<cr>", "Obsidian TOC")
 mapn("<localleader>on", "<cmd>Obsidian new<cr>", "Obsidian new")
 mapn("<localleader>ot", "<cmd>Obsidian tags<cr>", "Obsidian tags")
--- Fine cmd
--- mapn(":", "<cmd>FineCmdline<CR>", "Fine command line")
 -- toggleterm
 mapn("<leader>al", "<cmd>ToggleTermSendCurrentLine<cr>", "Send Current Line")
 mapv("<leader>al", "<cmd>ToggleTermSendVisualLines<cr>", "Send Visual Lines")
 mapv("<leader>as", "<cmd>ToggleTermSendVisualSelection<cr>", "Send Visual Selection")
--- double semicolon
-
+-- Markdown-preview
+mapn("<localleader>mp", "<cmd>MarkdownPreview<cr>", "Start live Preview")
+mapn("<localleader>mr", "<cmd>MarkdownPreviewRefresh<cr>", "Refresh live Preview")
 -- Some terminal keymaps
 local function set_terminal_keymaps()
 	local opts = { buffer = 0, silent = true, noremap = true }

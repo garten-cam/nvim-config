@@ -39,11 +39,11 @@ return {
 		},
 		-- preferred_link_style = "markdown",
 		link = {
-			style = "wiki",
+			style = "markdown",
 			format = "shortest",
 		},
 		checkbox = {
-			-- create_new = false,
+			create_new = false,
 			order = { " ", "~", "!", ">", "x", "" },
 		},
 		-- frontmatter = { enabled = true, sort = { "id", "aliases" } },

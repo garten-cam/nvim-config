@@ -6,12 +6,13 @@ return {
 		vim.o.timeout = true
 		vim.o.timeoutlen = 300
 	end,
-	opts = {},
+	opts = { preset = "classic" },
 	config = function()
 		require("which-key").add({
 			{ "<localleader>s", name = "Surround" },
 			{ "<localleader>o", name = "Obsidian" },
 			{ "<leader>a", name = "Toggle Term Send Stuff" },
+			{ "<localleader>m", name = "Markdown" },
 		})
 	end,
 }

@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	group = vim.api.nvim_create_augroup("lazyvim_vimtex_conceal", { clear = true }),
-	pattern = { "bib", "tex", "markdown", "norg", "neorg" },
+	pattern = { "markdown", "norg", "neorg" },
 	callback = function()
 		vim.opt.conceallevel = 2
 	end,
@@ -65,3 +65,21 @@ if vim.g.neovide then
 elseif vim.fn.exists("g:GuiLoaded") == 1 then
 	vim.cmd("GuiWindowOpacity 0.8")
 end
+--
+-- Create an autocommand group for your Markdown workflow
+local markdown_preview_group = vim.api.nvim_create_augroup("MarkdownPreviewAutoRefresh", { clear = true })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+	group = markdown_preview_group,
+	pattern = "*.md", -- Only trigger on Markdown files
+	callback = function()
+		-- Check if markdown-preview's server is actually running before trying to refresh
+		-- This prevents errors or accidental browser spawns if you just open an old md file
+		if vim.fn.exists(":MarkdownPreviewRefresh") == 2 then
+			-- Use pcall (protected call) to catch any silent initialization errors gracefully
+			pcall(function()
+				vim.cmd("MarkdownPreviewRefresh")
+			end)
+		end
+	end,
+})
