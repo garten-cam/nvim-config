@@ -15,10 +15,10 @@ return {
 	---@type obsidian.config
 	opts = {
 		workspaces = {
-			{
-				name = "notes",
-				path = "~/vaults/",
-			},
+			-- {
+			-- 	name = "notes",
+			-- 	path = "~/vaults/",
+			-- },
 			{
 				name = "zettelkasten",
 				path = "~/zettelkasten",
