@@ -6,7 +6,8 @@ return {
 		"micangl/cmp-vimtex",
 		{
 			"L3MON4D3/LuaSnip",
-			version = "v2.*",
+			version = "*",
+			run = "make install_jsregexp",
 			dependencies = { "rafamadriz/friendly-snippets" }, -- owned by LuaSnip
 			config = function()
 				require("luasnip.loaders.from_vscode").lazy_load()

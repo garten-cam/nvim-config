@@ -1,8 +1,8 @@
 return {
-	"selimacerbas/markdown-preview.nvim",
-	dependencies = { "selimacerbas/live-server.nvim" },
+	"selimacerbas/mdkite.nvim",
+	dependencies = { "selimacerbas/kitehost.nvim" },
 	config = function()
-		require("markdown_preview").setup({
+		require("mdkite").setup({
 			-- all optional; sane defaults shown
 			instance_mode = "takeover", -- "takeover" (one tab) or "multi" (tab per instance)
 			port = 0, -- 0 = auto (8421 for takeover, OS-assigned for multi)
@@ -12,23 +12,24 @@ return {
 			debounce_ms = 300,
 			scroll_sync = true,
 			yaml_mode = "hide",
+			custom_css = "~/.surf/styles/default_old.css",
 			-- overwrite_index_on_start = false,
 			hooks = {
 				on_start = function()
-					local preview = require("markdown_preview")
-					local util = require("markdown_preview.util")
+					local preview = require("mdkite")
+					local util = require("mdkite.util")
 
 					local dir
 					if preview.config.instance_mode == "takeover" then
 						dir = util.shared_workspace()
 					else
-						dir = util.workspace_for_buffer(bufnr)
+						dir = util.workspace_for_buffer(vim.api.nvim_get_current_buf())
 					end
 
 					local path = vim.fs.joinpath(dir, preview.config.index_name)
 					local content = util.read_text(path)
 
-					content = content:gsub("<h1>Markdown Preview</h1>", "", 1)
+					content = content:gsub("<h1>mdkite</h1>", "", 1)
 
 					util.write_text(path, content)
 				end,

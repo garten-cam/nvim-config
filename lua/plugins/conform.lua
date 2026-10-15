@@ -21,6 +21,11 @@ return {
 				async = false,
 				timeout_ms = 500,
 			},
+			formatters = {
+				latexindent = {
+					prepend_args = { "-g=/dev/null" },
+				},
+			},
 		})
 	end,
 }
