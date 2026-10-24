@@ -9,8 +9,6 @@ end
 -- Move
 mapn("<A-j>", ":MoveLine(1)<CR>", "Move line j")
 mapn("<A-k>", ":MoveLine(-1)<CR>", "Move line k")
--- Clear search
-mapn("<Esc><Esc>", ":noh<CR>", "No highlight search")
 mapv("<A-j>", ":MoveBlock(1)<CR>", "Move block j")
 mapv("<A-k>", ":MoveBlock(-1)<CR>", "Move block k")
 mapv("<A-h>", ":MoveHBlock(-1)<CR>", "Move block h")
