@@ -7,14 +7,14 @@ return {
 				-- markdown = { "cbfmt", "prettier" },
 				-- markdown = { "prettier" },
 				lua = { "stylua" },
-				tex = { "latexindent" },
+				tex = { "tex-fmt" },
 				c = { "clang-format" },
 				h = { "clang-format" },
 			},
 			default_format_opts = {
 				-- Increase the timeout in case Runic needs to precompile
 				-- (e.g. after upgrading Julia and/or Runic).
-				timeout_ms = 10000,
+				timeout_ms = 100000,
 			},
 			format_on_save = {
 				lsp_fallback = false,
